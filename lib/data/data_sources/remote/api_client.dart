@@ -6,6 +6,7 @@ import 'package:jurno_blog_app/data/data_sources/remote/api_constant.dart';
 import 'package:jurno_blog_app/data/data_sources/remote/api_endpoint_urls.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../../../utils/utils.dart';
 import 'api_exception.dart';
 
 class ApiClient{
@@ -49,10 +50,12 @@ class ApiClient{
     }
 }
 
-  Future<Response> postRequest({required String path,required dynamic body}) async{
+  Future<Response> postRequest({required String path,dynamic body}) async{
 
-    final options =  Options(
-        headers: {"Authorization":"Bearer 1822|SnfUsBKKsvpMwYMyggm4XlLrhb0zZbr8dBoDqV7R"}
+    var token = await Utils.getToken();
+
+    final options = Options(
+        headers:{"Authorization":"Bearer $token"}
     );
 
     try {

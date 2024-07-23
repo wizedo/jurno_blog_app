@@ -113,7 +113,6 @@ class _LoginState extends State<Login> {
                         PrimaryButton(title: 'Login', onPressed: (){
                           if(loginViewModel.formKey.currentState!.validate()){
                             loginViewModel.login(context);
-
                           }
                         }),
                         20.h.heightBox,

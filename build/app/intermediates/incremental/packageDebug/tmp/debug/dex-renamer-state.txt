@@ -1,4 +1,4 @@
-#Sun Jul 21 23:01:50 IST 2024
+#Tue Jul 23 22:38:00 IST 2024
 base.0=E\:\\newappname\\jurno_blog_app\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=E\:\\newappname\\jurno_blog_app\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=E\:\\newappname\\jurno_blog_app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

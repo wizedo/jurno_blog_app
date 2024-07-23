@@ -8,13 +8,14 @@ class Utils{
 
   var token= await getToken();
   if(token!=null){
+    print('Token found: $token');
     print('going to general');
     AutoRouter.of(context).push(const GeneralRoute());
   }else{
+    print('Token not found');
     print('going to auth');
     AutoRouter.of(context).push(const AuthRoute());
   }
-
   }
 
   static Future<void> saveToken(String token) async{
@@ -25,6 +26,11 @@ class Utils{
   static Future<String?> getToken() async{
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('token');
+  }
+
+  static Future<void> clearAllSavedData() async{
+    final SharedPreferences prefs= await SharedPreferences.getInstance();
+    prefs.clear();
   }
 
 }

@@ -1,3 +1,5 @@
+import 'package:jurno_blog_app/data/models/message_model.dart';
+import 'package:jurno_blog_app/utils/utils.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../presentation/screens/login/login_model.dart';
 import '../data_sources/remote/api_client.dart';
@@ -34,6 +36,33 @@ class AuthRepo extends ApiClient{
 
     }
     return LoginModel();
+
+  }
+
+
+  Future<MessageModel> userLogout(context) async{
+
+    try{
+      final response = await postRequest(path: ApiEndpointUrls.logout);
+      if(response.statusCode==200){
+        //1st solution
+        // final responseData =  tagsModelFromJson(jsonEncode(response.data));//this is only take map not stirng
+        // //enccode - Converts object to a JSON string.
+        // Vx.log(responseData);
+
+        //2nd solution
+        final responseData =  MessageModel.fromJson(response.data);//this is only take map not stirng
+        return responseData;
+
+      }else{
+        MessageModel();
+      }
+    }on Exception catch(e){
+      VxToast.show(context,msg: e.toString());
+      MessageModel();
+
+    }
+    return MessageModel();
 
   }
 

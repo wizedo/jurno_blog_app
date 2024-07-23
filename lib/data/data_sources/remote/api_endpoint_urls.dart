@@ -9,6 +9,6 @@ class ApiEndpointUrls{
 
   //auth endpoitn urls
   static const String login = "login";
-
+  static const String logout = "logout";
 
 }
